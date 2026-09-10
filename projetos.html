@@ -8,7 +8,7 @@
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-  <header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html">Pontes do Amanhã</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button><nav aria-label="Navegação principal"><ul id="menu" class="menu"><li><a href="index.html">Início</a></li><li><a aria-current="page" href="projetos.html">Projetos</a></li><li><a href="cadastro.html">Participe</a></li></ul></nav></div></header>
+  <header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html">Pontes do Amanhã</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu"><span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span><span>Menu</span></button><nav aria-label="Navegação principal"><ul id="menu" class="menu"><li><a href="index.html">Início</a></li><li><a aria-current="page" href="projetos.html">Projetos</a></li><li><a href="cadastro.html">Participe</a></li><li class="nav-dropdown"><button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-participar">Como ajudar <span aria-hidden="true">▾</span></button><ul id="submenu-participar" class="submenu" hidden><li><a href="projetos.html#voluntariado">Voluntariado</a></li><li><a href="projetos.html#doacoes">Doações</a></li><li><a href="cadastro.html">Fazer cadastro</a></li></ul></li></ul></nav></div></header>
   <main id="conteudo" class="section container">
     <header class="page-header"><p class="eyebrow">Iniciativas solidárias</p><h1>Projetos que aproximam oportunidades</h1><p class="lead">Cada iniciativa possui objetivos claros, acompanhamento e participação da comunidade.</p></header>
     <figure class="project-media">
@@ -30,14 +30,14 @@
       <div class="participation-grid">
         <article class="card">
           <span class="tag">Doe seu tempo</span>
-          <h3>Voluntariado</h3>
+          <h3 id="voluntariado">Voluntariado</h3>
           <p>Os voluntários podem apoiar atividades educacionais, oficinas de inclusão digital e ações comunitárias.</p>
           <ul><li>Escolha uma área de interesse</li><li>Informe sua disponibilidade</li><li>Aguarde o contato da equipe responsável</li></ul>
           <a class="button" href="cadastro.html">Quero ser voluntário</a>
         </article>
         <article class="card">
           <span class="tag">Apoie uma causa</span>
-          <h3>Doações</h3>
+          <h3 id="doacoes">Doações</h3>
           <p>As campanhas apresentam objetivo, período de realização e recursos necessários, permitindo acompanhar a finalidade de cada contribuição.</p>
           <ul><li>Escolha a campanha que deseja apoiar</li><li>Registre seu interesse no formulário</li><li>Receba as orientações da equipe responsável</li></ul>
           <a class="button" href="cadastro.html">Quero fazer uma doação</a>
@@ -46,7 +46,7 @@
     </section>
     <section class="callout"><h2>Quer colaborar com uma iniciativa?</h2><p>Cadastre-se e indique a forma de participação mais adequada ao seu perfil.</p><a class="button" href="cadastro.html">Abrir cadastro</a></section>
   </main>
-  <footer><div class="container"><p>© 2026 Instituto Pontes do Amanhã • Projeto acadêmico fictício</p></div></footer>
+  <footer><div class="container"><p>© 2026 Instituto Pontes do Amanhã • Projeto acadêmico fictício</p><a href="componentes.html">Guia de componentes</a></div></footer>
   <script src="assets/js/app.js" defer></script>
 </body>
 </html>

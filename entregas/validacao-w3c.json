@@ -1,7 +1,7 @@
 [
   {
     "arquivo": "index.html",
-    "sha256": "6cb141363380f2b9d7b23b40aefe9c0563147726832f3e66a377ed370ef1ff6a",
+    "sha256": "223040c4a01ce8249a853c5612b6e8827202e351d154aa1991358cfd73ab543e",
     "resultado": {
       "version": "26.9.9",
       "messages": []
@@ -9,7 +9,7 @@
   },
   {
     "arquivo": "projetos.html",
-    "sha256": "1eae116e4ecbb7d0dcc88c165f9a3c9c60acd18a3fdf2e730e3dcbb178ca5eb4",
+    "sha256": "4bd916c982fb3d30405f6b968d2bb369d4340a352ca311161fcee3d5866f3bbe",
     "resultado": {
       "version": "26.9.9",
       "messages": []
@@ -17,10 +17,19 @@
   },
   {
     "arquivo": "cadastro.html",
-    "sha256": "1339972c0787984d8e5804ad592fd80f175013576896c97da0d12a27701281e6",
+    "sha256": "34871adfde960974b2874356b2647dc6191cbf5321642a8b8d0f1f2f0bd6be0e",
     "resultado": {
       "version": "26.9.9",
       "messages": []
+    }
+  },
+  {
+    "arquivo": "componentes.html",
+    "sha256": "d1ec06bb6f8832dc4accaf153e30d6746eb59183587e6d870b663b4d77f64eee",
+    "resultado": {
+      "version": "26.9.9",
+      "messages": [],
+      "language": "pt"
     }
   }
 ]

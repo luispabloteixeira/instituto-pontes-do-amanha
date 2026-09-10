@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Instituto Pontes do Amanhã: educação, inclusão digital e apoio comunitário.">
+  <title>Componentes | Instituto Pontes do Amanhã</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Página inicial do Instituto Pontes do Amanhã">Pontes do Amanhã</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu"><span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span><span>Menu</span></button>
+      <nav aria-label="Navegação principal">
+        <ul id="menu" class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="cadastro.html">Participe</a></li><li class="nav-dropdown"><button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="submenu-participar">Como ajudar <span aria-hidden="true">▾</span></button><ul id="submenu-participar" class="submenu" hidden><li><a href="projetos.html#voluntariado">Voluntariado</a></li><li><a href="projetos.html#doacoes">Doações</a></li><li><a href="cadastro.html">Fazer cadastro</a></li></ul></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="section container">
+    <header class="page-header"><p class="eyebrow">Instituto Pontes do Amanhã</p><h1>Comunicação clara em cada etapa</h1><p class="lead">Guia interativo de componentes da plataforma. Os exemplos abaixo são demonstrativos.</p></header>
+    <div class="feedback-grid">
+      <section class="card" aria-labelledby="etiquetas"><h2 id="etiquetas">Etiquetas dos projetos</h2><p>Identificam as frentes de atuação e a disponibilidade.</p><div class="badge-list"><span class="badge badge-primary">Educação</span><span class="badge badge-info">Inclusão digital</span><span class="badge badge-neutral">Comunidade</span><span class="badge badge-success">Inscrições abertas</span><span class="badge badge-warning">Últimas vagas</span></div></section>
+      <section class="card" aria-labelledby="avisos"><h2 id="avisos">Alertas de orientação</h2><div class="alert alert-info"><strong>Informação</strong><p>Escolha um projeto para conhecer as formas de participação.</p></div><div class="alert alert-success"><strong>Sucesso — exemplo</strong><p>O cadastro passou pela validação. Nenhum dado foi enviado.</p></div><div class="alert alert-error"><strong>Erro — exemplo</strong><p>Confira o formato do e-mail antes de continuar.</p></div><div class="alert alert-warning"><strong>Atenção</strong><p>Utilize dados fictícios nesta demonstração.</p></div></section>
+      <section class="card" aria-labelledby="retornos"><h2 id="retornos">Notificações e confirmação</h2><p>O toast apresenta uma atualização sem interromper a navegação. O modal destaca informações que precisam de atenção.</p><div class="actions"><button class="button" id="show-toast" type="button">Exibir notificação</button><button class="button button-secondary" id="open-dialog" type="button">Ver orientações</button></div></section>
+      <section class="card" aria-labelledby="botoes"><h2 id="botoes">Estados dos botões</h2><p>Use o ponteiro ou a tecla Tab para perceber os estados de interação.</p><div class="actions"><a class="button" href="cadastro.html">Participar</a><button class="button" type="button" disabled>Inscrições indisponíveis</button></div><p class="field-hint">A ação indisponível é identificada por texto e aparência atenuada.</p></section>
+    </div>
+    <dialog id="guidance-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description"><span class="badge badge-info">Antes de participar</span><h2 id="dialog-title">Como funciona o cadastro?</h2><p id="dialog-description">Escolha a forma de participação e preencha os campos obrigatórios. Esta plataforma é um projeto acadêmico fictício: não realiza doações nem envia informações para um servidor.</p><div class="alert alert-warning"><strong>Proteja suas informações</strong><p>Use somente dados fictícios para experimentar o formulário.</p></div><form method="dialog" class="dialog-actions"><button class="button" autofocus>Entendi, fechar</button></form></dialog>
+    <div class="toast-region" aria-live="polite" aria-atomic="true"><div class="toast" id="feedback-toast" hidden><div><strong>Notificação de demonstração</strong><p>Os componentes estão prontos para uso. Nenhum dado foi enviado.</p></div><button type="button" id="close-toast" aria-label="Fechar notificação">×</button></div></div>
+  </main>
+  <footer><div class="container"><p>© 2026 Instituto Pontes do Amanhã • Projeto acadêmico fictício</p><a href="index.html">Voltar ao início</a></div></footer>
+  <script src="assets/js/app.js" defer></script>
+</body></html>
