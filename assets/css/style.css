@@ -4,3 +4,5 @@
 .participation{margin-top:4rem}.participation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.5rem}.participation-grid .button{margin-top:.5rem}
 @media (max-width:760px){.hero{padding:3rem 0}.hero-grid,.cards,.form-grid,.contact-section,.participation-grid{grid-template-columns:1fr}.menu-toggle{display:block;border:1px solid var(--line);background:#fff;border-radius:10px;padding:.55rem .8rem}.menu{display:none;position:absolute;top:72px;left:0;right:0;padding:1rem;background:#fff;border-bottom:1px solid var(--line);flex-direction:column}.menu.open{display:flex}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+.project-media{margin:0 0 2rem;max-width:1024px}.project-media img{display:block;width:100%;height:auto;border-radius:var(--radius)}.project-media figcaption{margin-top:.5rem;color:var(--muted)}.field-hint{font-size:.875rem;font-weight:400;color:var(--muted)}

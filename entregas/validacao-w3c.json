@@ -1,0 +1,26 @@
+[
+  {
+    "arquivo": "index.html",
+    "sha256": "6cb141363380f2b9d7b23b40aefe9c0563147726832f3e66a377ed370ef1ff6a",
+    "resultado": {
+      "version": "26.9.9",
+      "messages": []
+    }
+  },
+  {
+    "arquivo": "projetos.html",
+    "sha256": "1eae116e4ecbb7d0dcc88c165f9a3c9c60acd18a3fdf2e730e3dcbb178ca5eb4",
+    "resultado": {
+      "version": "26.9.9",
+      "messages": []
+    }
+  },
+  {
+    "arquivo": "cadastro.html",
+    "sha256": "1339972c0787984d8e5804ad592fd80f175013576896c97da0d12a27701281e6",
+    "resultado": {
+      "version": "26.9.9",
+      "messages": []
+    }
+  }
+]

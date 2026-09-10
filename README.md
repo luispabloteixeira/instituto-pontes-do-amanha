@@ -28,12 +28,16 @@ O pacote contém a implementação técnica integrada que serve de base às quat
 
 ## Estrutura
 
-```text
-projeto-ong/
-├── index.html
-├── projetos.html
-├── cadastro.html
-└── assets/
-    ├── css/style.css
-    └── js/app.js
-```
+| Pasta | Arquivos |
+| --- | --- |
+| Raiz | index.html, projetos.html, cadastro.html, README.md |
+| assets/ | oficina-comunitaria.png, oficina-comunitaria.jpg, oficina-comunitaria.webp |
+| assets/css/ | style.css |
+| assets/js/ | app.js |
+| entregas/ | experiencia-I.md a experiencia-IV.md, revisao-pratica.md, validacao-w3c.json |
+
+As páginas inicial e de projetos usam `picture` com WebP, JPEG e PNG de fallback. A página de projetos inclui uma ilustração com texto alternativo e legenda.
+
+O cadastro agrupa dados pessoais, endereço e forma de participação em `fieldset` com `legend`. Cada controle possui `id`, `name` e `label` associado. Há campos para nascimento, logradouro, número, complemento e todas as 27 UFs. As restrições nativas ficam ativas, e JavaScript aplica máscaras e limita a data de nascimento ao dia atual. Os padrões verificam formato, sem comprovar existência de CPF, telefone ou CEP. Não há envio de dados ao servidor.
+
+O resultado da validação dos três documentos HTML está em `entregas/validacao-w3c.json`, com hash SHA-256 de cada arquivo. A revisão dos sete itens está em `entregas/revisao-pratica.md`.
