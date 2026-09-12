@@ -7,7 +7,9 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "node scripts/smoke-test.mjs"
+    "test": "npm run build && npm run test:build",
+    "test:build": "node scripts/smoke-test.mjs",
+    "metrics": "node scripts/build-metrics.mjs"
   },
   "devDependencies": {
     "vite": "8.3.0"
