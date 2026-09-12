@@ -48,6 +48,13 @@ export function renderRoute() {
 
 export function initRouter() {
   document.addEventListener('click', (event) => {
+    const skipLink = event.target.closest('a.skip-link[href="#app"]');
+    if (skipLink) {
+      event.preventDefault();
+      document.querySelector('#app')?.focus({ preventScroll: false });
+      return;
+    }
+
     const link = event.target.closest('a[data-route]');
     if (!link) return;
     event.preventDefault();
