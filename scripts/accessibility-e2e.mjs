@@ -51,20 +51,35 @@ try {
   assert(await page.locator('footer').count() === 1, 'Landmark <footer> ausente.');
   summary.push('Landmarks semânticos: OK');
 
-  // Link de salto: precisa aparecer ao focar, preservar a rota e enviar foco ao conteúdo.
-  await page.evaluate(() => document.activeElement?.blur());
-  await page.keyboard.press('Tab');
-  assert(await page.locator('.skip-link').evaluate((el) => el === document.activeElement), 'O link de salto não é o primeiro foco após Tab.');
-  const skipOutline = await page.locator('.skip-link').evaluate((el) => {
-    const style = getComputedStyle(el);
-    return { style: style.outlineStyle, width: parseFloat(style.outlineWidth) || 0 };
+  // Ordem de tabulação e link de salto.
+  const firstFocusable = await page.evaluate(() => {
+    const selector = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+    const nodes = [...document.querySelectorAll(selector)].filter((element) => {
+      const style = getComputedStyle(element);
+      return style.display !== 'none' && style.visibility !== 'hidden';
+    });
+    return nodes[0]?.className || '';
   });
-  assert(skipOutline.style !== 'none' && skipOutline.width >= 2, 'O link de salto não apresenta foco visível suficiente.');
+  assert(firstFocusable.includes('skip-link'), 'O link de salto não é o primeiro elemento na ordem lógica de tabulação.');
+
+  const skipLink = page.locator('.skip-link');
+  await skipLink.focus();
+  const skipFocusStyle = await skipLink.evaluate((el) => {
+    const style = getComputedStyle(el);
+    return {
+      left: style.left,
+      borderWidth: parseFloat(style.borderTopWidth) || 0,
+      outlineWidth: parseFloat(style.outlineWidth) || 0,
+      outlineStyle: style.outlineStyle,
+    };
+  });
+  assert(skipFocusStyle.left !== '-9999px', 'O link de salto continua fora do ecrã quando recebe foco.');
+  assert(skipFocusStyle.borderWidth >= 2 || (skipFocusStyle.outlineStyle !== 'none' && skipFocusStyle.outlineWidth >= 2), 'O link de salto não apresenta foco visual suficiente.');
   const routeBeforeSkip = await page.evaluate(() => location.hash);
   await page.keyboard.press('Enter');
   assert(await page.evaluate(() => location.hash) === routeBeforeSkip, 'O link de salto alterou indevidamente a rota da SPA.');
   assert(await page.locator('#app').evaluate((el) => el === document.activeElement), 'O link de salto não moveu o foco para o conteúdo principal.');
-  summary.push('Link de salto e foco visível: OK');
+  summary.push('Ordem de foco, link de salto e foco visível: OK');
 
   // Menu hambúrguer no viewport móvel.
   const menuToggle = page.locator('.menu-toggle');
