@@ -1,0 +1,32 @@
+export const projects = [
+  {
+    id: 'aprender-juntos',
+    categoria: 'Educação',
+    categoriaClasse: 'badge-primary',
+    status: 'Inscrições abertas',
+    statusClasse: 'badge-success',
+    titulo: 'Aprender Juntos',
+    descricao: 'Reforço escolar e acompanhamento de crianças e adolescentes no contraturno.',
+    itens: ['Encontros semanais', 'Mentoria individual', 'Material gratuito'],
+  },
+  {
+    id: 'conexao-cidada',
+    categoria: 'Tecnologia',
+    categoriaClasse: 'badge-info',
+    status: 'Últimas vagas',
+    statusClasse: 'badge-warning',
+    titulo: 'Conexão Cidadã',
+    descricao: 'Oficinas de informática, segurança digital e acesso a serviços públicos.',
+    itens: ['Turmas introdutórias', 'Laboratório acessível', 'Certificado de participação'],
+  },
+  {
+    id: 'rede-que-acolhe',
+    categoria: 'Comunidade',
+    categoriaClasse: 'badge-neutral',
+    status: 'Campanha ativa',
+    statusClasse: 'badge-success',
+    titulo: 'Rede que Acolhe',
+    descricao: 'Campanhas solidárias e encaminhamento de famílias à rede local de apoio.',
+    itens: ['Escuta comunitária', 'Parcerias locais', 'Ações mensais'],
+  },
+];

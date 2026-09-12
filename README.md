@@ -1,43 +1,43 @@
 # Instituto Pontes do Amanhã
 
-Projeto acadêmico fictício de uma plataforma web para uma ONG, organizado para as quatro experiências práticas de Desenvolvimento Front-End para Web.
-
-## Relação com as unidades
-
-- Experiência I: HTML5 semântico, `index.html`, `projetos.html`, `cadastro.html`, formulário, validações nativas e máscaras.
-- Experiência II: design system, CSS3, estrutura responsiva, componentes visuais, menus, botões e estilização do formulário.
-- Experiência III: fundamentos de JavaScript, organização inicial, controle de eventos, interatividade, modularização e refinamento.
-- Experiência IV: controle de versões, documentação, acessibilidade, otimização e preparação para deploy em produção.
-
-## Como executar
-
-Abra `index.html` em um navegador. Não há dependências externas nem coleta real de dados.
-
-Versão publicada: https://luispabloteixeira-hash.github.io/instituto-pontes-do-amanha/
-
-## Validação sugerida
-
-1. Validar os três arquivos HTML no W3C Markup Validation Service.
-2. Testar navegação por teclado e visualização em celular.
-3. Confirmar os padrões de CPF, telefone e CEP no formulário.
-4. Registrar capturas das validações conforme os campos da plataforma acadêmica.
-
-## Estado de preparação
-
-O pacote contém a implementação técnica integrada que serve de base às quatro experiências. Os textos reflexivos, capturas, links de repositório e evidências de deploy devem ser preenchidos nos campos próprios de cada rascunho somente após a revisão do estudante.
+Projeto acadêmico front-end organizado segundo **separation of concerns** e implementado como **Single Page Application (SPA)** em Vanilla JavaScript.
 
 ## Estrutura
 
-| Pasta | Arquivos |
-| --- | --- |
-| Raiz | index.html, projetos.html, cadastro.html, README.md |
-| assets/ | oficina-comunitaria.png, oficina-comunitaria.jpg, oficina-comunitaria.webp |
-| assets/css/ | style.css |
-| assets/js/ | app.js |
-| entregas/ | experiencia-I.md a experiencia-IV.md, revisao-pratica.md, validacao-w3c.json |
+```text
+instituto-pontes-do-amanha/
+├── html/       # documento mestre da SPA
+├── css/        # design system, Grid, Flexbox, responsividade e estados
+├── imagens/    # recursos visuais
+├── js/         # ponto de entrada, módulos, dados e views
+│   ├── data/
+│   ├── modules/
+│   └── views/
+└── entregas/   # evidências e documentação técnica
+```
 
-As páginas inicial e de projetos usam `picture` com WebP, JPEG e PNG de fallback. A página de projetos inclui uma ilustração com texto alternativo e legenda.
+## Como executar
 
-O cadastro agrupa dados pessoais, endereço e forma de participação em `fieldset` com `legend`. Cada controle possui `id`, `name` e `label` associado. Há campos para nascimento, logradouro, número, complemento e todas as 27 UFs. As restrições nativas ficam ativas, e JavaScript aplica máscaras e limita a data de nascimento ao dia atual. Os padrões verificam formato, sem comprovar existência de CPF, telefone ou CEP. Não há envio de dados ao servidor.
+Por usar ES6 Modules, execute o projeto em um servidor HTTP local. Na raiz do projeto:
 
-O resultado da validação dos três documentos HTML está em `entregas/validacao-w3c.json`, com hash SHA-256 de cada arquivo. A revisão dos sete itens está em `entregas/revisao-pratica.md`.
+```bash
+python -m http.server 8000
+```
+
+Depois abra `http://localhost:8000/html/`.
+
+## Recursos implementados
+
+- SPA por hash (`#/inicio`, `#/projetos`, `#/cadastro`, `#/componentes`)
+- interceptação de navegação com `preventDefault()`
+- injeção de views via DOM
+- templates de cards com Template Literals + `map()` + `join()`
+- delegação de eventos nos cards dinâmicos
+- persistência de interesses com `localStorage`, `JSON.stringify()` e `JSON.parse()`
+- validação nativa + JavaScript em tempo real
+- menu dropdown e hambúrguer acessíveis
+- toast, alertas, badges e modal
+- ES6 Modules com `import`/`export`
+- CSS Grid de 12 colunas, Flexbox e cinco breakpoints
+
+Nenhum dado pessoal do formulário é persistido.
