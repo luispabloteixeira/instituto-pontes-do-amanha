@@ -9,35 +9,38 @@ Projeto acadêmico front-end voltado a uma interface institucional para o tercei
 - **Vanilla JavaScript (ES6+)**: manipulação do DOM, eventos, SPA, templates dinâmicos, validação e armazenamento local.
 - **ES6 Modules**: separação de responsabilidades com `import` e `export`.
 - **Web Storage API**: persistência de interesses com `localStorage`, `JSON.stringify()` e `JSON.parse()`.
+- **Vite 8**: servidor de desenvolvimento e build otimizada de produção.
 - **Git e GitHub**: versionamento, GitFlow, issues, pull requests e documentação das entregas.
 
-Não foram utilizadas bibliotecas ou frameworks externos, pois os requisitos funcionais desta etapa foram atendidos com recursos nativos da plataforma Web.
+A aplicação não utiliza framework JavaScript. O Vite é empregado exclusivamente como ferramenta de desenvolvimento e empacotamento de produção.
 
 ## Estrutura do projeto
 
 ```text
 instituto-pontes-do-amanha/
 ├── html/       # documento mestre da SPA
-├── css/        # design system, Grid, Flexbox, responsividade e estados
+├── css/        # design system, responsividade, modo escuro e contraste
 ├── imagens/    # recursos visuais
 ├── js/         # ponto de entrada, módulos, dados e views
-│   ├── data/   # dados utilizados pelos templates
-│   ├── modules/# navegação, roteamento, storage, validação e feedback
-│   └── views/  # fragmentos renderizados pela SPA
+│   ├── data/
+│   ├── modules/
+│   └── views/
+├── scripts/    # smoke test e métricas da build
 ├── entregas/   # evidências e documentação técnica
+├── vite.config.mjs
+├── package.json
 ├── CHANGELOG.md
 └── README.md
 ```
 
 ## Pré-requisitos
 
-Para executar o projeto localmente são necessários:
+Para o fluxo com Vite são necessários:
 
-- Git para clonar o repositório;
-- navegador moderno com suporte a ES6 Modules e Web Storage;
-- Python 3 ou outro servidor HTTP local simples.
-
-O projeto não possui dependências NPM, portanto não é necessário executar `npm install`.
+- Git;
+- Node.js 20.19+ ou 22.12+;
+- npm;
+- navegador moderno.
 
 ## Instalação e execução local
 
@@ -47,49 +50,59 @@ O projeto não possui dependências NPM, portanto não é necessário executar `
 git clone https://github.com/luispabloteixeira/instituto-pontes-do-amanha.git
 ```
 
-2. Entre na pasta do projeto:
+2. Entre na pasta:
 
 ```bash
 cd instituto-pontes-do-amanha
 ```
 
-3. Inicie um servidor HTTP local:
+3. Instale a dependência de desenvolvimento:
 
 ```bash
-python -m http.server 8000
+npm install
 ```
 
-4. Acesse no navegador:
+4. Inicie o servidor de desenvolvimento:
 
-```text
-http://localhost:8000/html/
+```bash
+npm run dev
 ```
 
-O uso de servidor HTTP é recomendado porque a aplicação utiliza ES6 Modules, cujo carregamento pode ser limitado quando os arquivos são abertos diretamente pelo protocolo `file://`.
+5. Acesse `/html/` no endereço apresentado pelo Vite.
 
-## Build e dependências
+## Build de produção
 
-A aplicação é composta por HTML, CSS e JavaScript nativos e não utiliza bundler, transpilador ou processo de compilação. Por esse motivo, **não existe etapa de build obrigatória**: os arquivos versionados já constituem a aplicação executável.
+A build é gerada com Vite:
 
-Também não há dependências externas a instalar. Caso o projeto evolua para utilizar NPM, esta seção deverá ser atualizada com os comandos correspondentes.
+```bash
+npm run build
+```
+
+A configuração está em `vite.config.mjs`. A entrada é `html/index.html`, a saída é gravada em `dist/`, o JavaScript é minificado com **Oxc** e o CSS com **Lightning CSS**. O Vite também processa o HTML, consolida os módulos ES6 e reescreve as referências dos assets para a versão otimizada.
+
+Para testar a build localmente:
+
+```bash
+npm run preview
+```
 
 ## Testes e validação
 
-Os testes são realizados executando a aplicação por servidor HTTP e verificando os fluxos principais no navegador e no DevTools.
+O comando abaixo gera uma build limpa e executa o smoke test:
 
-Principais cenários validados:
+```bash
+npm test
+```
 
-- navegação SPA e tratamento de rotas;
-- menus dropdown e hambúrguer;
-- geração dinâmica de cards;
-- eventos `click`, `input` e `submit`;
-- validação de formulários e mensagens de erro/sucesso;
-- abertura e fechamento de modal e toast;
-- persistência e restauração de interesses pelo `localStorage`;
-- comportamento responsivo nos breakpoints definidos;
-- inspeção de Console e Network para identificar erros de carregamento ou execução.
+O teste confirma a existência de `dist/html/index.html`, preservação do contêiner principal da SPA e geração de bundles JavaScript sintaticamente válidos. O workflow do GitHub Actions também inicia o `vite preview` e valida a resposta HTTP da versão construída.
 
-A documentação dos testes e das correções está disponível em `entregas/testes-spa.md` e nos demais registros da pasta `entregas/`.
+As métricas de tamanho podem ser geradas após a build com:
+
+```bash
+npm run metrics
+```
+
+Esse comando compara HTML, CSS e JavaScript de origem com os ficheiros gerados em `dist/` e calcula a redução percentual.
 
 ## Recursos implementados
 
@@ -103,7 +116,8 @@ A documentação dos testes e das correções está disponível em `entregas/tes
 - menu dropdown e hambúrguer acessíveis;
 - toast, alertas, badges e modal;
 - ES6 Modules com `import` e `export`;
-- CSS Grid de 12 colunas, Flexbox e cinco breakpoints.
+- CSS Grid de 12 colunas, Flexbox e cinco breakpoints;
+- modo escuro e alto contraste adaptados às preferências do sistema.
 
 Nenhum dado pessoal do formulário é persistido no navegador.
 
@@ -115,7 +129,7 @@ O projeto adota **Versionamento Semântico (SemVer)** no formato `MAJOR.MINOR.PA
 - **MINOR**: novas funcionalidades compatíveis;
 - **PATCH**: correções pontuais e ajustes sem quebra de compatibilidade.
 
-A versão `v1.0.0` representa a primeira entrega funcional estável da aplicação, reunindo SPA, templates dinâmicos, armazenamento local, validação, acessibilidade e modularização ES6.
+A versão `v1.0.0` representa a primeira entrega funcional estável da aplicação.
 
 O fluxo de branches segue uma adaptação do **GitFlow**:
 
@@ -123,12 +137,12 @@ O fluxo de branches segue uma adaptação do **GitFlow**:
 - `develop`: integração do desenvolvimento contínuo;
 - `feature/*`: novas funcionalidades isoladas;
 - `release/*`: preparação de versões;
-- `hotfix/*`: correções urgentes sobre a versão estável.
+- `hotfix/*`: correções urgentes.
 
-As mensagens recentes seguem **Conventional Commits**, utilizando prefixos como `feat:`, `fix:`, `refactor:`, `docs:` e `chore:` para indicar a natureza da alteração.
+As mensagens recentes seguem **Conventional Commits**, utilizando prefixos como `feat:`, `fix:`, `refactor:`, `docs:`, `test:`, `build:` e `chore:`.
 
 ## Gestão e rastreabilidade
 
-O repositório utiliza issues para registrar tarefas técnicas e pull requests para documentar a integração entre branches. Os registros permitem relacionar requisitos, implementação, revisão e conclusão das alterações antes da incorporação à `main`.
+O repositório utiliza issues para registrar tarefas técnicas e pull requests para documentar a integração entre branches. O GitHub Actions valida automaticamente a build de produção, o smoke test, as métricas de minificação e o preview HTTP.
 
-Documentações complementares podem ser consultadas na pasta `entregas/`, incluindo GitFlow, versionamento, arquitetura, testes e checklist técnico.
+Documentações complementares encontram-se na pasta `entregas/`.
