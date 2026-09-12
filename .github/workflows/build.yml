@@ -3,7 +3,7 @@ name: Build de produção
 on:
   push:
     branches:
-      - feature/vite-build
+      - main
   pull_request:
     branches:
       - main

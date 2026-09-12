@@ -5,6 +5,7 @@ export default defineConfig({
   appType: 'spa',
   base: './',
   input: {
+    landing: resolve(import.meta.dirname, 'index.html'),
     app: resolve(import.meta.dirname, 'html/index.html')
   },
   build: {
