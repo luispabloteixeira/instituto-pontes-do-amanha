@@ -5,13 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
+    "build": "vite build && node scripts/copy-static.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "test": "npm run build && npm run test:build",
     "test:build": "node scripts/smoke-test.mjs",
+    "test:a11y": "node scripts/accessibility-e2e.mjs",
     "metrics": "node scripts/build-metrics.mjs"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "playwright": "^1.55.0",
     "vite": "8.3.0"
   }
 }
